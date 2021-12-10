@@ -1,0 +1,60 @@
+<div class="bg-home-back text-white pt-20 pb-50 -mx-15">
+  <div class="w-full flex flex-row justify-end pr-40 items-center">
+    <div class="cursor-pointer flex flex-row items-center">
+      <div class="mr-5">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-20 w-20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+        </svg>
+      </div>
+      <a (click)="logout()">Logout</a>
+    </div>
+  </div>
+  <div class="text-center" *ngIf="user$ | async as user">
+    <div class="w-full mb-10">
+      <img class="mx-auto rounded-full border-2 border-blue-200" width="80" height="80" src="assets/images/icons/star/{{ user.star + 1 }}.png" alt="{{ user.star + 1 }} Star">
+    </div>
+    <div class="flex flex-row items-center justify-center mb-10">
+      <button class="px-10 py-5 text-blue-500 bg-white rounded-3xl font-bold shadow-md" routerLink="/update-info">
+        <div class="flex flex-row items-center">
+          <div class="mr-5">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-20 w-20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+          </div>
+          Update Info
+        </div>
+      </button>
+    </div>
+    <p class="mb-10"><span class="font-bold">{{ user.id }}</span></p>
+    <p class="mb-10">{{ user.email }}</p>
+  </div>
+</div>
+<div class="w-full p-20 bg-white bg-white rounded-md shadow-md text-center -mt-40">
+  <p class="text-18 text-blue-500 font-bold">Total Revenue</p>
+  <p class="font-bold">{{ totalRevenueSum }}<span class="text-13 ml-10">USDT</span></p>
+</div>
+<div class="w-full p-20">
+  <p class="text-18 font-bold pb-20 mb-30 border-b">Total People: <span class="text-blue-500 text-18">{{ totalCount }}</span></p>
+  <ul class="w-full">
+    <li class="my-10 bg-white rounded-md shadow-md" *ngFor="let group of groups; let level=index;">
+      <div class="flex flex-row items-center justify-between p-5 pr-20">
+        <div class="flex flex-row items-center">
+          <div>
+            <img width="40" height="40" src="assets/images/icons/number/{{ level + 1 }}.png" alt="user-avatar">
+          </div>
+          <div class="ml-20">
+            <p class="font-bold">Level {{ group.level }} Friends</p>
+          </div>
+        </div>
+        <div class="flex flex-row items-center">
+          <p class="bg-blue-100 rounded-md px-10 mr-10 text-blue-500">{{ group.friends.length }}</p>
+          <div class="text-blue-500 shadow-md p-5 rounded-md cursor-pointer" routerLink="/friend/{{ group.level }}">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-15 w-15" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+          </div>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>

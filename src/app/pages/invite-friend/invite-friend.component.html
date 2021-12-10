@@ -1,0 +1,11 @@
+<div class="w-full bg-white mt-15 p-20 text-center rounded-md shadow-md" *ngIf="user$ | async as user">
+  <div class="w-full my-50">
+    <ngx-qrcode [elementType]="elementType" [errorCorrectionLevel]="correctionLevel" [value]="value + user.invitation" alt="Invitation Link QR Code" [scale]="15"></ngx-qrcode>
+  </div>
+  <div>
+    <button class="btn btn-primary btn-50">Save to phone</button>
+  </div>
+  <div class="w-full px-10 mt-50">
+    <input type="text" class="px-10 h-55 bg-blue-50 rounded-md border-none w-full" placeholder="This is invitation link" value="{{ value + user.email }}">
+  </div>
+</div>

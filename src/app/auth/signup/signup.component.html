@@ -1,0 +1,27 @@
+<form [formGroup]="form" (ngSubmit)="signup()">
+  <div class="form-group mb-30">
+    <label for="email">Email</label>
+    <input id="email" type="email" placeholder="Please enter email" class="form-input" formControlName="email">
+  </div>
+
+  <div class="form-group mb-30">
+    <label for="password">Password</label>
+    <input id="password" type="password" placeholder="Please enter password" class="form-input" formControlName="password">
+  </div>
+
+  <div class="form-group mb-30">
+    <label for="confirmPassword">Confirm Password</label>
+    <input id="confirmPassword" type="password" placeholder="Please enter password" class="form-input" formControlName="confirmPassword">
+  </div>
+
+  <div class="form-group mb-30">
+    <label for="invitees">Invitees</label>
+    <input id="invitees" placeholder="Optional" class="form-input" formControlName="invitees">
+  </div>
+
+  <button class="btn btn-primary btn-full">Sign up</button>
+
+  <div class="text-center mt-50">
+    <p class="text-light-500">Already have an account? <a class="text-blue-500" routerLink="/login">Login</a></p>
+  </div>
+</form>

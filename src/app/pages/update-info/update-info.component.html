@@ -1,0 +1,38 @@
+<div class="py-20 border-b">
+  <p class="text-18 font-medium pl-15">Revise resume</p>
+</div>
+<form class="my-20 p-20 bg-white rounded-md shadow-md" [formGroup]="form" (ngSubmit)="updateInfo()" *ngIf="user$ | async as user">
+  <div class="form-group mb-30">
+    <label for="email">Email</label>
+    <input id="email" type="email" placeholder="Please enter email" class="form-input" formControlName="email">
+  </div>
+
+  <div class="form-group mb-30">
+    <label for="walletAddress">USDT_TRC20</label>
+    <input id="walletAddress" placeholder="Please enter your usdt wallet address" class="form-input" formControlName="walletAddress" value="{{ user.walletAddress }}">
+  </div>
+
+  <div class="form-group pb-30 mb-30 border-b">
+    <p class="p">Tip: Please use your personal wallet. otherwise it cannot be upgraded automatically</p>
+  </div>
+
+  <div class="form-group mb-30">
+    <label for="password">Change password</label>
+    <input id="password" placeholder="If left blank, it will not be modified" class="form-input" formControlName="password">
+  </div>
+
+  <div class="form-group mb-30">
+    <label for="confirmPassword">Enter the password again</label>
+    <input id="confirmPassword" placeholder="If left blank, it will not be modified" class="form-input" formControlName="confirmPassword">
+  </div>
+
+  <div class="form-group mb-30">
+    <label for="code">Email code</label>
+    <div class="w-full flex gap-x-10">
+      <input id="code" class="form-input w-9/12" placeholder="Please enter the code" formControlName="code">
+      <button type="button" class="btn btn-primary w-2/5" (click)="requestVerificationCode($event)">Get Code</button>
+    </div>
+  </div>
+
+  <button class="btn btn-primary btn-full">Update</button>
+</form>

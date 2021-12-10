@@ -1,0 +1,25 @@
+<div class="bg-white flex flex-row items-center rounded-md my-15 shadow-md">
+  <div class="p-10 mx-10 w-1/2 border-r text-center">
+    <p class="text-16 text-black font-bold">Total Revenue</p>
+    <p class="text-16 text-blue-500 font-bold">{{ totalRevenueSum }}<span class="text-12 font-medium">USDT</span></p>
+  </div>
+  <div class="p-20 mx-10 w-1/2 text-center">
+    <p class="text-16 text-black font-bold">Today Revenue</p>
+    <p class="text-16 text-blue-500 font-bold">{{ todayRevenueSum }}<span class="text-12 font-medium">USDT</span></p>
+  </div>
+</div>
+<div class="bg-white flex flex-row items-center rounded-md my-15 text-20 shadow-md">
+  <div class="w-1/2 text-center py-15 text-16 cursor-pointer" [ngClass]="currentTab === RevenueDisplayType.Daily ? 'bg-blue-500 text-white' : ''" (click)="currentTab = RevenueDisplayType.Daily">Daily</div>
+  <div class="w-1/2 text-center py-15 text-16 cursor-pointer" [ngClass]="currentTab === RevenueDisplayType.Monthly ? 'bg-blue-500 text-white' : ''" (click)="currentTab = RevenueDisplayType.Monthly">Monthly</div>
+</div>
+<div class="bg-white flex flex-row items-center rounded-md my-15 text-18 shadow-md">
+  <ul class="w-full">
+    <li class="flex flex-row justify-between border-b p-20 mx-10 items-center" *ngFor="let revenue of totalRevenue | dailyMonthlyRevenue : (currentTab === RevenueDisplayType.Daily ? 1 : 0)">
+      <p class="font-bold">{{ revenue.createdAt | date : 'MM-dd' }}</p>
+      <div class="flex flex-row items-center">
+        <p class="mr-10">{{ revenue.amount }} USDT</p>
+        <img src="assets/images/usdt.png" alt="USDT">
+      </div>
+    </li>
+  </ul>
+</div>

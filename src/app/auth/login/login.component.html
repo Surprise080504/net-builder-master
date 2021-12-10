@@ -1,0 +1,25 @@
+<form [formGroup]="form" (ngSubmit)="login()">
+  <div class="form-group mb-30">
+    <label for="email">Email</label>
+    <input id="email" type="email" placeholder="Please enter email" class="form-input" formControlName="email">
+  </div>
+
+  <div class="form-group mb-30">
+    <label for="password">Password</label>
+    <input id="password" type="password" placeholder="Please enter password" class="form-input" formControlName="password">
+  </div>
+
+  <div class="flex justify-between mb-50">
+    <div class="flex items-center">
+      <input id="rememberMe" type="checkbox" class="rounded text-blue-500" />
+      <label for="rememberMe" class="text-light-400 ml-5">Remember me</label>
+    </div>
+    <a class="text-blue-500" routerLink="/forgot-password">Forgot Password?</a>
+  </div>
+
+  <button class="btn btn-primary btn-full">Login</button>
+
+  <div class="text-center mt-50">
+    <p class="text-light-500">Don't have an account yet? <a class="text-blue-500" routerLink="/signup">Register now</a></p>
+  </div>
+</form>

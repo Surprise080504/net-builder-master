@@ -1,0 +1,9 @@
+<div class="min-h-100vh max-h-100vh flex flex-col bg-blue-50">
+  <ng-container *ngIf="header$ | async as header">
+    <app-header [title]="header.title" [pathBack]="header.pathBack"></app-header>
+  </ng-container>
+  <div class="flex-grow px-15 overflow-y-auto">
+    <router-outlet></router-outlet>
+  </div>
+  <app-tabs-menu></app-tabs-menu>
+</div>

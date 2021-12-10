@@ -1,0 +1,34 @@
+<div class="py-20 border-b">
+  <p class="text-18 font-medium pl-15">Write to me</p>
+</div>
+<form class="my-20 p-20 bg-white rounded-md shadow-md" [formGroup]="form" (ngSubmit)="contact()">
+  <div class="form-group mb-30">
+    <label for="email">Email</label>
+    <input id="email" type="email" placeholder="Please enter email" class="form-input" formControlName="email">
+  </div>
+
+  <div class="form-group mb-30">
+    <label for="id">ID</label>
+    <input id="id" placeholder="Please enter your ID" class="form-input" formControlName="id">
+  </div>
+
+  <div class="form-group mb-30">
+    <label for="title">Title</label>
+    <input id="title" class="form-input" formControlName="title">
+  </div>
+
+  <div class="form-group mb-30">
+    <label for="content">Content</label>
+    <textarea id="content" class="form-textarea" rows="5" formControlName="content"></textarea>
+  </div>
+
+<!--  <div class="form-group mb-30">-->
+<!--    <label for="code">Code</label>-->
+<!--    <div class="w-full flex gap-x-10">-->
+<!--      <input id="code" class="form-input w-9/12" placeholder="Please enter code">-->
+<!--      <input class="form-input w-3/12">-->
+<!--    </div>-->
+<!--  </div>-->
+
+  <button class="btn btn-primary btn-full">Submit</button>
+</form>

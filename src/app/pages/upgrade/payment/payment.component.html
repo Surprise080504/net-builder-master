@@ -1,0 +1,66 @@
+<form class="w-full p-20 text-center border-b" *ngIf="user$ | async as user" [formGroup]="form" (ngSubmit)="upgrade()">
+  <p class="text-18 font-bold">Current Level: {{ user.star }} Star</p>
+  <div class="bg-white p-20 my-20 rounded-md shadow-md">
+    <img class="mx-auto" width="100" height="100" src="assets/images/icons/star/{{ user.star + 1 }}.png" alt="{{ user.star + 1 }} Shinning Star">
+    <div class="flex flex-row items-center justify-center">
+      <p class="text-16 pr-10 mt-10">
+        <span class="text-16 font-bold">Next Level: </span>
+        {{ user.star + 1 }} Star Member
+      </p>
+      <div class="text-yellow-300">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-20 w-20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 9l3 3m0 0l-3 3m3-3H8m13 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+      </div>
+    </div>
+  </div>
+  <div class="bg-white p-20 my-20 rounded-md shadow-md">
+    <p class="pb-10">Please Transfer 100.001234usdt(trc20) to the following wallet</p>
+    <div class="py-30 border-b border-t">
+      <div class="flex flex-row items-center justify-between pb-30">
+        <p class="font-bold">USDT Amount</p>
+        <div class="flex flex-row items-center">
+          <input type="text" class="w-130 border-none text-right" value="10. {{ user.id | usdtAmount }}" readonly #usdtAmount>
+          <p class="font-bold ml-10">USDT</p>
+        </div>
+        <button [ngxClipboard]="usdtAmount" class="font-medium rounded-md shadow-md bg-blue-500 text-white h-30 px-10" (click)="copyText($event)">Copy</button>
+      </div>
+      <div class="flex flex-row items-center pb-30">
+        <p class="font-bold">Wallet</p>
+        <p class="ml-10">{{ invitor.walletAddress }}</p>
+      </div>
+      <div class="flex flex-row items-center pb-30">
+        <p class="font-bold">Transaction</p>
+        <input type="text" id="transactionHash" class="ml-10 w-full px-10 h-55 bg-blue-50 rounded-md border-none" placeholder="324324wqedr43f4325r4352r3452rewfrewfre" formControlName="transactionHash">
+      </div>
+    </div>
+    <p class="pt-10">Warning: Please pay 100.001234 usdt strictly. otherwise it cannot be upgraded automatically</p>
+  </div>
+  <button class="btn btn-primary btn-50">Submit</button>
+</form>
+<div class="w-full p-20">
+  <p class="text-18 font-bold">Level Authority</p>
+  <ul class="w-full">
+    <li class="my-10 bg-white rounded-md shadow-md" *ngFor="let starNumber of [1,2,3,4,5,6,7,8,9,10]">
+      <div class="flex flex-row items-center justify-between p-5 pr-20">
+        <div class="flex flex-row items-center">
+          <div class="p-10 rounded-md bg-yellow-100">
+            <img width="40" height="40" src="assets/images/icons/star/{{ starNumber }}.png" alt="{{ starNumber }} Star">
+          </div>
+          <div class="ml-20">
+            <p class="text-16 font-bold">{{ starNumber }} Star member</p>
+            <p>Unlock level {{ starNumber }} Friends</p>
+          </div>
+        </div>
+        <div class="text-blue-500">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-20 w-20" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd" />
+          </svg>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>
+<div class="my-50 text-center">
+  <p>More rights and interests will be open in the future!</p>
+</div>

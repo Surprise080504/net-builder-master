@@ -1,0 +1,15 @@
+<div class="px-15">
+  <div class="max-w-150 mx-auto pt-50 mb-35">
+    <img width="225" height="225" src="assets/images/logo.png" alt="Logo">
+  </div>
+  <div class="border-b flex flex-row items-center justify-between pb-15">
+    <h1 class="text-18 font-bold text-light-500">{{ title }}</h1>
+    <select id="language" class="bg-blue-50 rounded-md border-none">
+      <option value="1">English</option>
+      <option value="2">Chinese</option>
+    </select>
+  </div>
+  <div class="py-30">
+    <router-outlet></router-outlet>
+  </div>
+</div>

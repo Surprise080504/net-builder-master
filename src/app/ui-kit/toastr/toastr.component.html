@@ -1,0 +1,15 @@
+<div class="fixed top-20 w-300 left-2/4 -ml-150 z-50">
+  <div *ngFor="let item of toastrs; let i = index" @fly_toastr
+       class="{{'px-15 py-15 rounded-md flex items-center ' + (item.type | toastrColor : 'bg')}}" role="alert">
+    <div class="mr-10 w-25">
+      <img class="max-w-full" [src]="item.type | toastrColor : 'image'" [alt]="item.type">
+    </div>
+    <div class="flex justify-between items-center">
+      <div>
+        <p class="font-bold mb-0" *ngIf="item.title">{{ item.title }}</p>
+        <p class="mb-0" [innerHTML]="item.text"></p>
+      </div>
+      <app-icon icon="close" [color]="item.type | toastrColor : 'icon'" class="cursor-pointer" (click)="close(item, i)"></app-icon>
+    </div>
+  </div>
+</div>

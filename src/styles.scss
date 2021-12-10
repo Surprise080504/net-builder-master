@@ -1,0 +1,43 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+* {
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+}
+
+::-webkit-scrollbar {
+  width: 0px;
+  background: transparent; /* make scrollbar transparent */
+}
+
+body {
+  background: black;
+}
+
+.btn {
+  @apply font-medium h-50 rounded-md shadow-md;
+  &.btn-primary {
+    @apply bg-blue-500 text-white;
+  }
+  &.btn-full {
+    @apply w-full;
+  }
+  &.btn-50 {
+    @apply w-1/2;
+  }
+}
+
+.form-group {
+  @apply flex flex-col;
+  label {
+    @apply font-medium mb-10;
+  }
+  .form-input {
+    @apply px-10 h-55 bg-blue-50 rounded-md border-none;
+  }
+  .form-textarea {
+    @apply px-10 bg-blue-50 rounded-md border-none;
+  }
+}
